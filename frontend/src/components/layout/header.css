@@ -1,0 +1,395 @@
+/* =========================================================
+   EXPENSO HEADER — MOBILE-FIRST DESIGN
+========================================================= */
+
+.top-header {
+  width: 100%;
+  min-height: 76px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  z-index: 7000;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border, #e7e9ef);
+}
+
+.mobile-brand {
+  display: none;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #ef2027;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 900;
+  box-shadow: 0 8px 20px rgba(239,32,39,.22);
+}
+
+.mobile-brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.mobile-brand-copy strong {
+  color: var(--dark, #14213d);
+  font-size: 14px;
+}
+
+.mobile-brand-copy span {
+  margin-top: 4px;
+  color: var(--muted, #71809b);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.header-search {
+  width: min(460px, 48%);
+  height: 44px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  box-sizing: border-box;
+  background: #f7f8fb;
+  border: 1px solid var(--border, #e7e9ef);
+  border-radius: 13px;
+  transition: .18s ease;
+}
+
+.header-search:focus-within {
+  background: #fff;
+  border-color: rgba(239,32,39,.45);
+  box-shadow: 0 0 0 4px rgba(239,32,39,.07);
+}
+
+.header-search > i {
+  flex: 0 0 auto;
+  color: #8b95a7;
+}
+
+.header-search input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text, #253452);
+  font-size: 13px;
+}
+
+.header-search input::placeholder {
+  color: #9aa3b2;
+}
+
+.clear-search {
+  flex: 0 0 auto;
+  border: none;
+  background: transparent;
+  color: #8b95a7;
+  cursor: pointer;
+}
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.notification-button {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border, #e7e9ef);
+  border-radius: 12px;
+  background: var(--white, #fff);
+  color: var(--muted, #71809b);
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.notification-button:hover {
+  color: #ef2027;
+  border-color: rgba(239,32,39,.35);
+  transform: translateY(-1px);
+}
+
+.notification-button span {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid var(--white, #fff);
+  border-radius: 50%;
+  background: #ef2027;
+}
+
+.profile-button {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 7px 4px 4px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.profile-button:hover {
+  background: rgba(127,127,127,.06);
+  border-color: var(--border, #e7e9ef);
+}
+
+.header-profile-image,
+.profile-avatar-small {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 50%;
+}
+
+.header-profile-image {
+  display: block;
+  object-fit: cover;
+}
+
+.profile-avatar-small {
+  display: grid;
+  place-items: center;
+  background: #ef2027;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.header-user {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-user strong {
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--dark, #14213d);
+  font-size: 12px;
+}
+
+.header-user span {
+  margin-top: 2px;
+  color: var(--muted, #71809b);
+  font-size: 10px;
+}
+
+.profile-button > i {
+  color: #9aa3b2;
+  font-size: 9px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+@media (max-width: 900px) {
+  .top-header {
+    min-height: 68px;
+    padding: 0 15px;
+    gap: 10px;
+  }
+
+  .mobile-brand {
+    display: flex;
+  }
+
+  .header-search {
+    flex: 1;
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* =========================================================
+   PHONE — NEW COMPACT HEADER
+========================================================= */
+@media (max-width: 600px) {
+  .top-header {
+    min-height: 64px;
+    padding: 8px 10px;
+    gap: 8px;
+    background: var(--white, #fff);
+    box-shadow: 0 5px 22px rgba(20,33,61,.08);
+  }
+
+  .mobile-brand {
+    display: flex;
+  }
+
+  .mobile-brand-copy {
+    display: none;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+  }
+
+  .header-search {
+    height: 40px;
+    flex: 1;
+    width: auto;
+    padding: 0 11px;
+    border-radius: 12px;
+    background: #f4f5f8;
+  }
+
+  .header-search input {
+    font-size: 11px;
+  }
+
+  .header-actions {
+    gap: 5px;
+  }
+
+  .notification-button {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+    border-radius: 11px;
+    background: #fff;
+  }
+
+  .profile-button {
+    padding: 2px;
+    border: none;
+  }
+
+  .profile-button:hover {
+    background: transparent;
+    border: none;
+  }
+
+  .header-user,
+  .profile-button > i {
+    display: none;
+  }
+
+  .header-profile-image,
+  .profile-avatar-small {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+}
+
+@media (max-width: 430px) {
+  .top-header {
+    min-height: 60px;
+    padding: 7px 8px;
+    gap: 6px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .header-search {
+    height: 38px;
+    padding: 0 9px;
+  }
+
+  .header-search > i {
+    font-size: 11px;
+  }
+
+  .header-search input {
+    font-size: 10px;
+  }
+
+  .notification-button {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .header-profile-image,
+  .profile-avatar-small {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+}
+
+@media (max-width: 350px) {
+  .header-search input {
+    font-size: 9px;
+  }
+
+  .header-search > i {
+    display: none;
+  }
+
+  .notification-button {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  .header-profile-image,
+  .profile-avatar-small {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+html[data-theme="dark"] .top-header {
+  background: rgba(18,23,32,.96);
+  border-color: var(--border, #242b38);
+  box-shadow: 0 5px 22px rgba(0,0,0,.2);
+}
+
+html[data-theme="dark"] .header-search {
+  background: #0f141c;
+  border-color: var(--border, #242b38);
+}
+
+html[data-theme="dark"] .header-search input {
+  color: #e5e9f1;
+}
+
+html[data-theme="dark"] .notification-button {
+  background: #121720;
+  border-color: var(--border, #242b38);
+  color: #aab3c2;
+}
