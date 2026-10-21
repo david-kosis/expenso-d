@@ -1,13 +1,29 @@
 # Expenso
 
-Expenso is a business-management interface for tracking customers, suppliers, products, and reports.
+Expenso is a business-management application for tracking customers, suppliers, products, reports, and account settings.
 
-## Demo login
+## Project layout
 
-This repository currently contains a small static demo for the requested login flow. Enter any non-empty email and password to continue to the dashboard. Credentials are not verified.
-
-**Security:** this bypass is for prototypes only. It is not authentication and must never protect real customer, supplier, or financial data. Production login must verify credentials on the server.
+- `frontend/` — React + Vite application
+- `backend/` — Node.js/Express API
+- `login.html`, `dashboard.html`, and `demo-login-bypass.js` — separate static login-flow demo
 
 ## Run locally
 
-Open `login.html` in a browser, or serve this folder with any static web server.
+### Backend
+1. Open a terminal in `backend/`.
+2. Run `npm install`.
+3. Configure the required environment variables in a local `.env` file based on the backend configuration.
+4. Run the start script shown in `backend/package.json`.
+
+### Frontend
+1. Open a second terminal in `frontend/`.
+2. Run `npm install`.
+3. Configure your local frontend environment variables.
+4. Run `npm run dev`.
+
+## Important notes
+
+- Environment files containing secrets and uploaded profile pictures are intentionally not included in this public copy. Never commit passwords, database credentials, API keys, or private tokens.
+- The static `login.html` demo accepts any non-empty email and password and is **not authentication**. It must not be used to protect real customer or financial data.
+- The React app's login flow remains in `frontend/src/Login.jsx`; the static demo bypass is a separate page and is not automatically wired into the React login flow.
