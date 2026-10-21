@@ -1,0 +1,229 @@
+/* =========================================================
+   EXPENSO SIDEBAR — CLEAN RESPONSIVE SYSTEM
+   Desktop sidebar + mobile drawer. No legacy mobile rules.
+========================================================= */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 250px;
+  height: 100dvh;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: var(--white, #fff);
+  border-right: 1px solid var(--border, #e7e9ef);
+  z-index: 9000;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 2px 4px 34px;
+  flex-shrink: 0;
+}
+
+.sidebar-logo-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  border-radius: 12px;
+  background: #ef2027;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 8px 20px rgba(239,32,39,.2);
+}
+
+.sidebar-logo-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sidebar-logo-text strong {
+  color: var(--dark, #14213d);
+  font-size: 17px;
+  line-height: 1.1;
+}
+
+.sidebar-logo-text span {
+  margin-top: 4px;
+  color: var(--muted, #71809b);
+  font-size: 10px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-link {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: var(--muted, #71809b);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.sidebar-link i {
+  width: 21px;
+  flex: 0 0 21px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.sidebar-link:hover {
+  color: #ef2027;
+  background: var(--red-light, #fff1f2);
+  transform: translateX(2px);
+}
+
+.sidebar-link.active {
+  color: #fff;
+  background: #ef2027;
+  box-shadow: 0 8px 20px rgba(239,32,39,.2);
+}
+
+.sidebar-link.active:hover {
+  color: #fff;
+  background: #d91820;
+}
+
+.sidebar-bottom {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border, #e7e9ef);
+}
+
+.mobile-menu-button {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border, #e7e9ef);
+  border-radius: 12px;
+  background: var(--white, #fff);
+  color: var(--dark, #14213d);
+  box-shadow: 0 8px 24px rgba(20,33,61,.12);
+  z-index: 10000;
+  cursor: pointer;
+}
+
+.mobile-menu-button:hover {
+  color: #ef2027;
+  border-color: rgba(239,32,39,.35);
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+/* =========================
+   MOBILE DRAWER
+========================= */
+
+@media (max-width: 900px) {
+  .mobile-menu-button {
+    display: flex;
+  }
+
+  .sidebar {
+    width: min(300px, 86vw);
+    padding: 22px 16px 18px;
+    transform: translateX(-105%);
+    box-shadow: none;
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+    box-shadow: 18px 0 45px rgba(0,0,0,.18);
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    background: rgba(7,10,16,.52);
+    backdrop-filter: blur(2px);
+    z-index: 8500;
+  }
+
+  .sidebar-logo {
+    margin: 4px 4px 28px;
+  }
+
+  .sidebar-nav {
+    gap: 5px;
+  }
+
+  .sidebar-link {
+    min-height: 52px;
+    padding: 0 15px;
+    font-size: 14px;
+  }
+
+  /* Account stays visible at the bottom on every phone. */
+  .sidebar-bottom {
+    margin-top: auto;
+    padding-top: 16px;
+  }
+
+  .sidebar-bottom .sidebar-link {
+    min-height: 54px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mobile-menu-button {
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar {
+    width: min(290px, 88vw);
+  }
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+html[data-theme="dark"] .sidebar {
+  background: var(--white, #121720);
+  border-color: var(--border, #242b38);
+}
+
+html[data-theme="dark"] .mobile-menu-button {
+  background: #121720;
+  color: #f5f7fb;
+  border-color: #242b38;
+}
+
+html[data-theme="dark"] .sidebar-link.active {
+  color: #fff;
+}
